@@ -19,7 +19,7 @@ VALUE method_slopy_cos(VALUE self, VALUE vector1, VALUE vector2) {
   int v2_length = RARRAY_LEN(vector2);
   int dot_product = 0;
   int magnitude1 = 0;
-  int magnitude2 = 0
+  int magnitude2 = 0;
   int v1;
   int v2;
   
