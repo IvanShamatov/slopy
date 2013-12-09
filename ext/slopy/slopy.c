@@ -4,6 +4,7 @@
 
 // Interface
 VALUE Slopy = Qnil;
+VALUE Calculator = Qnil;
 void Init_slopy();
 VALUE method_slopy_cos(VALUE self, VALUE vector1, VALUE vector2);
 VALUE method_slopy_matrix(VALUE self, VALUE matrix);
@@ -11,8 +12,8 @@ VALUE method_slopy_matrix(VALUE self, VALUE matrix);
 
 
 void Init_slopy() {
-  Slopy = rb_define_module("Slopy", rb_cObject);
-  Calculator = rb_define_module_under(Slopy, "Calculator")
+  Slopy = rb_define_module("Slopy");
+  Calculator = rb_define_module_under(Slopy, "Calculator");
   rb_define_singleton_method(Calculator, "cos", method_slopy_cos, 2);
   rb_define_singleton_method(Calculator, "matrix", method_slopy_matrix, 1);
 }
