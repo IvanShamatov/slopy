@@ -24,7 +24,7 @@ VALUE method_slopy_cos(VALUE self, VALUE vector1, VALUE vector2) {
   int v1_length = RARRAY_LEN(vector1);
   int v2_length = RARRAY_LEN(vector2);
   if (v1_length != v2_length) {
-    return false;
+    return Qfalse;
   }
   int dot_product = 0;
   int magnitude1 = 0;
@@ -45,7 +45,7 @@ VALUE method_slopy_cos(VALUE self, VALUE vector1, VALUE vector2) {
 
 VALUE method_slopy_matrix(VALUE self, VALUE vectors) {
   double matrix;
-  return matrix;
+  return rb_float_new(matrix);
 }
 
 
