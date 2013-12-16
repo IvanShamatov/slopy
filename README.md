@@ -1,6 +1,6 @@
 # Slopy
 
-```Slopy::Calculator``` is attempt to implement slope one collaborative algorithm using Ruby C API, as a native extension.
+```Slopy::Calculator``` is attempt to implement slope one collaborative filtering algorithm using Ruby C API, as a native extension.
 
 ## Methods
 
