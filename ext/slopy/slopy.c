@@ -1,7 +1,7 @@
 #include <ruby.h>
 #include <math.h>
-
-
+#include <stdio.h>
+#include <stdlib.h>
 // Interface
 VALUE Slopy = Qnil;
 VALUE Calculator = Qnil;
@@ -43,9 +43,22 @@ VALUE method_slopy_cos(VALUE self, VALUE vector1, VALUE vector2) {
 }
 
 
+
 VALUE method_slopy_matrix(VALUE self, VALUE vectors) {
-  double matrix;
-  return rb_float_new(matrix);
+  VALUE matrix = rb_ary_new();
+  ID sym_puts = rb_intern("puts");
+  int v_length = RARRAY_LEN(vectors);
+  for (int i = 0; i < v_length; i++) {
+    VALUE v1 = rb_ary_shift(vectors);
+    VALUE similarity = rb_ary_new();
+    for (int j=0; j < v_length-(i+1); j++) {
+      VALUE v2 = rb_ary_entry(vectors, j);
+      rb_ary_push(similarity, method_slopy_cos(self, v1, v2));
+      rb_funcall(rb_mKernel, sym_puts, 1, rb_str_new2(similarity));
+    }
+    rb_ary_push(matrix, similarity);
+  }
+  return matrix;
 }
 
 

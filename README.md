@@ -1,29 +1,21 @@
 # Slopy
 
-TODO: Write a gem description
+```Slopy::Calculator``` is attempt to implement slope one collaborative algorithm using Ruby C API, as a native extension.
+
+## Methods
+
+```ruby
+Slopy::Calculator.cos(vector1, vector2)
+# will calculate cosine similarity for two vectors
+
+Slopy::Calculator.matrix(array_of_vectors)
+# will calculate cosine similarity for each pair of vectors. 
+# Attention: O(n*(n-1)/2)
+```
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'slopy'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install slopy
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+```
+$ ruby ext/slopy/extconf.rb
+$ rake compile 
+$ irb -r ./lib/slopy
